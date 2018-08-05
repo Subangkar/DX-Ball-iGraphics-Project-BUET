@@ -1,0 +1,5 @@
+(int)totalBrickNos
+
+(array)hasBrick // contains 1 where brick will be drawn
+
+(struct Rectangle)Bricks[] // contains bricks struct for colors

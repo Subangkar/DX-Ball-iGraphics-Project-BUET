@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1462170168 source:c:\users\123\documents\workspace\codeblocks\dx_ball\imain.cpp
+	"iGraphics.h"
+
+1462889172 c:\users\123\documents\workspace\codeblocks\dx_ball\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl/glaux.h>
+
+1462888988 source:c:\users\123\documents\workspace\codeblocks\dx_ball\picturedemo2.cpp
+	"iGraphics.h"
+
+1465316118 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\graphicalio.cpp
+	<string.h>
+	"iGraphics.h"
+	"fileIO.h"
+
+1465316474 s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\igraphics.h
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl/glaux.h>
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl/glaux.h>
+
+1465355120 s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\definations.h
+
+1463643719 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\main.cpp
+
+1465350184 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\fileio.cpp
+	"fileIO.h"
+
+1464905376 s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\fileio.h
+	<stdio.h>
+	<stdlib.h>
+	"definations.h"
+
+1463689595 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\string.cpp
+	"definations.h"
+	<string.h>
+
+1463678416 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\userio.cpp
+
+1465162988 source:s:\user\downloads\documents\level - 1 , term-1\@sessionals\cse 102\term project - dx-ball\project\dx_ball\levelcontrol.cpp
+	"fileIO.h"
+

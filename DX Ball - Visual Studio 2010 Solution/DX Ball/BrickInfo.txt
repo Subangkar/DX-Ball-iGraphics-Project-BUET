@@ -1,0 +1,24 @@
+Brick[index]
+
+00 -> Null
+01 -> Nor_Red
+02 -> Nor_Blue
+03 -> Nor_Green
+04 -> Nor_Orange
+05 -> Nor_Fire
+
+11 -> Esp_Red
+12 -> Esp_Blue
+13 -> Esp_Green
+14 -> Esp_Orange
+15 -> Esp_Fire
+
+21 -> Img_Red
+22 -> Img_Blue
+23 -> Img_Green
+24 -> Img_Orange
+25 -> Img_Fire
+
+// 01-05 normal brick less point 
+// 11-15 especial brick 2 * normal's point
+// 21-25 image generator brick which will produce images by cathing those special facilities will be generated

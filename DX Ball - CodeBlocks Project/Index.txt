@@ -1,0 +1,86 @@
+
+definations.h		->
+				 contains struct definations , Object & Screen & Sidebar & level size limitation , Co-ordinate conversions ,
+				 FILENames , Object movement speed , Bricks Color Value with enum constants
+				 score rates for normal bricks too
+
+				 Links : LoadLevel() between graphicalIO.cpp & levelControl.cpp
+						 numberToString() between graphicalIO.cpp & string.cpp
+
+						 
+fileIO.h			->
+				 
+				 Links : updateHighScores() between graphicalIO.cpp & fileIO.cpp
+						 resetHighScores() between graphicalIO.cpp & fileIO.cpp
+						 
+						 
+string.cpp			->
+				contains numberToString() used in graphicalIO.cpp to print Player score in Drawing Console as string
+
+
+graphicalIO.cpp		->
+				contains all objects & functions to draw objects & numbers
+				functions to controll movements of objects
+				loads level data from file using levelControl.cpp
+				global variables to control scoring , gameStart and gameOver Screen 
+				hasBrick array holds the info of this level's brick obtained from file
+				Reacts with move/keyboard actions too
+				
+
+levelControl.cpp	->
+				contains LevelFiles & scoreRate's array &
+				LoadLevel() which load current level's brick pos int hasBrick array
+
+				
+fileIO.cpp			->
+				contains functions for to keep HighScore.txt file up-To-Date
+				
+				
+
+Prog Starts from graphicalIO.cpp
+				-> initially hasStartedGame == hasClickedInTextBox == hasBallDroppedBelow == hasFinishedGame ==0 & hasBrick={0,...,0} , remainingBricks == totalBricks == 0
+
+				-> main() set the timer function for Ball Movement
+				-> iDraw() function 
+						draws the start screen at beginning as initially "hasStartedGame"==0,
+						draws text box and activate it by mouse click in iMouse(),
+						scan user name text in iKeyboard() & assign it to "player.name" & makes "hasStartedGame"=1
+
+						then initially hasFinishedThisLevel()==1 as "remainingBricks"==0 
+						so load level_1 from file level_1.txt in LoadLevel() of >>>"levelControl.cpp"<<< by LoadNextLevel()
+						now "remainingBricks" == "totalBricks" && hasBrick[] is loaded with this level info
+
+						then objects starting(X,Y) & heigh,width,color,screen barrier is given initial value in assignLevelInitialValues()
+
+						after that serially DrawSideBoundaries() , DrawStick() , DrawBrickSets() ,
+						DrawBall() , DrawPlayerInfo() draws respective objects
+
+						with leftMouse/SPACEBAR click ball movement starts as it makes "hasStartedGame"=1 in iMouse() or iKeyboard()
+
+						keyboard left/right button or left clicked mouse movement calls MoveStick() which moves the stick by evaluating conditions of sidebar start(X,Y)
+						
+						MoveBall() is called by iSetTimer() which moves the ball by evaluating conditions from hasCollidedWithBrick() & hasCollidedWithStick() & sideBoundary conditions inside itself()
+
+						player.score is increamented in DeleteBrick() which is called by hasCollidedWithBrick() with current score rate & "remainingBricks" is also decreamented
+
+						=> if "remainingBricks" becomes 0 then LoadNextLevel() is called from iDraw()
+
+						=> if	ball drops under the stick zone then "hasBallDroppedBelow"=1
+							 or all level is completed then "hasFinishedGame"=1
+							 so DrawGameEnds() is called from iDraw() which DrawGameEnds_Incomplete() or DrawGameEnds_Complete() with relevant conditions
+							 and shows terminating BMP images & player.score
+						=> if User Hits Enter after EndScreen Appears Then showScores() is called by 			DrawGameEnds() which shows the list in drawing console after it has updated Highscore file by calling updateHighScores() 
+							 
+						DrawNumber() is used to show player.score in screen in DrawPlayerInfo() & in DrawGameEnds() which calls DrawDigit() to draw each digit
+						HorizontalSegment() & VerticalSegment() is called by DrawDigit() to draw segments of digits
+
+						SetDrawingColor() is for to pass struct Color directly in it to set current drawing color by iSetColor()
+
+
+*** SCALED_X(x) , SCALED_Y(y) is (X,Y) which is the grided co-ordinate system that represents a whole brick as a single co-ordinate (X,Y) so that this whole rectangle of brick can be represented by an single array Index;
+
+
+
+#levels files contains bricks pos & color as numeric value,
+	 saved pos are as like as it is shown in console means pos starting from (X,Y) from lower left corner & going up ++X & going right ++Y
+	 which is read in levelControl.cpp
